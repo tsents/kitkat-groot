@@ -12,13 +12,13 @@ void ignoreLine() {
  * If the input is invalid it forces it to be 0, and flushes stdin until input end (\n).
  */
 int sanetizedPositiveInput() {
-    int x = 0;
-    std::cin >> x;
+    int input = 0;
+    std::cin >> input;
     ignoreLine();
-    if (x < 0) {
+    if (input < 0) {
         return 0;
     }
-    return x;
+    return input;
 }
 
 int main() {
