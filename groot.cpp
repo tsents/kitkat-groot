@@ -7,6 +7,7 @@
 void ignoreLine() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
+
 /**
  * This function takes a user input of non-negetive int.
  * Returns int if the input was positive interger, forces it to be 0 otherwise.
