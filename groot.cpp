@@ -14,18 +14,19 @@ void ignoreLine() {
  */
 int sanetizedPositiveInput() {
     int input = 0;
+tryAgain:
     std::cin >> input;
     ignoreLine();
     if (input < 0) {
         std::cout << "Expected non-negitive value!" << std::endl;
-        return 0;
+        goto tryAgain;
     }
     if (std::cin.fail()) {
         std::cin.clear(); // Put us back in 'normal' operation mode
         ignoreLine();     // Clears possibly bad input
 
         std::cout << "Invalid input!" << std::endl;
-        return 0;
+        goto tryAgain;
     }
     return input;
 }
