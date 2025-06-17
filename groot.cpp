@@ -9,21 +9,35 @@ void ignoreLine() {
 }
 /**
  * This function takes a user input of non-negetive int.
- * If the input is invalid it forces it to be 0, and flushes stdin until input end (\n).
+ * Returns int if the input was positive interger, forces it to be 0 otherwise.
  */
 int sanetizedPositiveInput() {
     int input = 0;
     std::cin >> input;
     ignoreLine();
     if (input < 0) {
+        std::cout << "Expected non-negitive value!" << std::endl;
+        return 0;
+    }
+    if (std::cin.fail()) {
+        std::cin.clear(); // Put us back in 'normal' operation mode
+        ignoreLine();     // Clears possibly bad input
+
+        std::cout << "Invalid input!" << std::endl;
         return 0;
     }
     return input;
 }
 
-int main() {
+/**
+ * Takes a user input and returns its sqrt.
+ */
+double groot() {
     std::cout << "Enter a number to groot" << std::endl;
     const int input = sanetizedPositiveInput();
-    std::cout << "Groot: " << std::sqrt(input) << std::endl;
+    return std::sqrt(input);
+}
+int main() {
+    std::cout << "Groot: " << groot() << std::endl;
     return 0;
 }
